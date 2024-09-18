@@ -1,6 +1,8 @@
 package tests.ui.demoqaUiTests.textBoxTests;
 
 import dataqa.mainPage.page_object.pages.BasePage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.ui.demoqaUiTests.BaseTest;
@@ -8,10 +10,13 @@ import tests.ui.demoqaUiTests.steps.TextBoxSteps;
 
 public class TextBoxTests extends BaseTest {
     TextBoxSteps textBoxSteps = new TextBoxSteps();
+
     BasePage basePage = new BasePage();
 
     @Test
+    @Owner("Имя тестировщика")
     @DisplayName("Проверяем заполененные поля на странице  /text-box")
+    @Description("Тест заполняет все поля, нажимает кнопку submit и проверяет вывод заполненной информации")
     void fillAllForms() {
         String fullName = "Name LastName";
         String email = "email@email.ru";
@@ -27,5 +32,4 @@ public class TextBoxTests extends BaseTest {
         textBoxSteps.clickBtn();
         textBoxSteps.completedFormShouldHaveInfo(fullName, email, currentAddress, permanentAddress);
     }
-
 }
