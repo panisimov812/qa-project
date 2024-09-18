@@ -10,9 +10,8 @@ public class BaseTest {
     static void setUp() {
 
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browser = "Firefox";
+        Configuration.browser = "Chrome";
         Configuration.browserSize = "1920x1080";
-
     }
 
 

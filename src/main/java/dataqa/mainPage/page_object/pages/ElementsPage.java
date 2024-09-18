@@ -32,11 +32,17 @@ public class ElementsPage {
         $(PERMANENT_ADDRESS_INPUT).setValue(permanentAddress);
     }
 
-    public void clickSubmitBtn(){
+    public void clickSubmitBtn() {
         $(SUBMIT_BUTTON).click();
     }
 
-    public void completedFormShouldHaveInfo(String fullName, String email, String currentAddress, String permanentAddress) {
-        $(COMPLETE_FORM).shouldHave(text(fullName), text(email), text(currentAddress), text(permanentAddress));
+    public void completedFormShouldHaveInfo(String fullName,
+                                            String email,
+                                            String currentAddress,
+                                            String permanentAddress) {
+        $(COMPLETE_FORM).shouldHave(text(fullName),
+                text(email),
+                text(currentAddress),
+                text(permanentAddress));
     }
 }

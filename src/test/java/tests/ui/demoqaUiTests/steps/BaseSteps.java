@@ -1,5 +1,6 @@
 package tests.ui.demoqaUiTests.steps;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,7 +15,7 @@ public class BaseSteps {
 
     }
 
-  //  @Step("открываем страницу {0} через браузер Chrome")
+    @Step("открываем страницу {0} через браузер Chrome")
     public static void openUrlByChrome(String url) {
         WebDriver driver = new ChromeDriver();
         driver.get(url);
