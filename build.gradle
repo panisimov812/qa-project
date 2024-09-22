@@ -30,7 +30,7 @@ dependencies {
     implementation 'com.codeborne:selenide:7.4.3'
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.13.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.0'
-    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    implementation 'ch.qos.logback:logback-classic:1.4.12'
 
     // Import allure-bom to ensure correct versions of all the dependencies are used
     testImplementation platform("io.qameta.allure:allure-bom:$allureVersion")
@@ -44,4 +44,10 @@ test {
     ignoreFailures = true
     useJUnitPlatform()
     jvmArgs = [ "-javaagent:${configurations.agent.singleFile}" ]
+}
+
+// Настройки Allure плагина
+allure {
+    version = "$allureVersion"
+    autoconfigure = true
 }
