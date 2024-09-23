@@ -32,8 +32,8 @@ public class TextBoxSteps {
         elementsPage.clickSubmitBtn();
     }
 
-    @Step("Проверяем что после заполнения полеотображается текст - full name({0})," +
-            "email({1}), current address ({2}) и permanent address({3})")
+    @Step("Проверяем что поле full name содержит ({0}) поле email содержит({1})" +
+            " поле current address содержит ({2}) поле permanent содержит address({3})")
     public void completedFormShouldHaveInfo(String fullName, String email, String currentAddress, String permanentAddress) {
         elementsPage.completedFormShouldHaveInfo(fullName, email, currentAddress, permanentAddress);
     }
