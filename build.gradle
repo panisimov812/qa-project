@@ -61,7 +61,8 @@ dependencies {
     // Интеграция Allure с JUnit 5
     testImplementation "io.qameta.allure:allure-junit5"
 
-// Add necessary Allure dependencies to dependencies section
+    // Встраивает логику отчетности Allure в тесты, которые используют библиотеку
+    // RestAssured для тестирования API.
     testImplementation("io.qameta.allure:allure-rest-assured")
 
     // Weaver AspectJ для работы с аспектами
@@ -77,5 +78,4 @@ test {
 // Настройки плагина Allure
 allure {
     version = "$allureVersion"
-    autoconfigure = true
 }
