@@ -1,4 +1,4 @@
-package tests.ui.demoqaUiTests.steps;
+package ui.demoqaUiTests.steps;
 
 import dataqa.mainPage.page_object.pages.ElementsPage;
 import io.qameta.allure.Step;

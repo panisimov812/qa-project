@@ -1,12 +1,12 @@
-package tests.ui.demoqaUiTests.textBoxTests;
+package ui.demoqaUiTests.textBoxTests;
 
 import dataqa.mainPage.page_object.pages.BasePage;
+import ui.demoqaUiTests.BaseTest;
+import ui.demoqaUiTests.steps.TextBoxSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import tests.ui.demoqaUiTests.BaseTest;
-import tests.ui.demoqaUiTests.steps.TextBoxSteps;
 
 public class TextBoxTests extends BaseTest {
     TextBoxSteps textBoxSteps = new TextBoxSteps();

@@ -1,10 +1,10 @@
-package tests.api.jsonPlaceholderApiTests;
+package api.jsonPlaceholderApiTests;
 
+import api.jsonPlaceholderApiTests.steps.UserApiSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import tests.api.jsonPlaceholderApiTests.steps.UserApiSteps;
 
 public class ApiTests extends BaseTest {
 

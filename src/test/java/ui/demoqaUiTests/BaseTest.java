@@ -1,4 +1,4 @@
-package tests.ui.demoqaUiTests;
+package ui.demoqaUiTests;
 
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Step;

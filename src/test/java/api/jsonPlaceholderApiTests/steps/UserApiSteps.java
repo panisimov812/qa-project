@@ -1,4 +1,4 @@
-package tests.api.jsonPlaceholderApiTests.steps;
+package api.jsonPlaceholderApiTests.steps;
 
 import dataqa.api.page_object.UserApi;
 import io.qameta.allure.Step;
