@@ -10,6 +10,7 @@ public class ApiTests extends BaseTest {
 
     UserApiSteps userApiSteps = new UserApiSteps();
 
+
     @Test
     @Owner("Имя тестировщика")
     @DisplayName("Проверка получения данных пользователя")
