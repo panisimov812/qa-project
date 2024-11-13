@@ -1,41 +1,44 @@
 package ui.demoqaUiTests.steps;
 
-import dataqa.mainPage.page_object.pages.ElementsPage;
+import dataqa.mainPage.page_object.pages.TextBoxPage;
 import io.qameta.allure.Step;
 
 public class TextBoxSteps {
 
-    ElementsPage elementsPage = new ElementsPage();
+    private final TextBoxPage textBoxPage = new TextBoxPage();
 
-    @Step("Заполняем поле Full Name данными ({0})")
+    @Step("Открываем страницу /textbox")
+    public void openTextBoxPage() {
+        textBoxPage.openTextBoxPage();
+    }
+
+    @Step("Заполняем поле 'Full Name' значением {fullName}")
     public void fillFullName(String fullName) {
-        elementsPage.fillFullName(fullName);
+        textBoxPage.fillFullName(fullName);
     }
 
-    @Step("Заполняем поле email данными ({0})")
+    @Step("Заполняем поле 'Email' значением {email}")
     public void fillEmail(String email) {
-        elementsPage.fillEmail(email);
+        textBoxPage.fillEmail(email);
     }
 
-    @Step("Заполняем поле address данными ({0})")
-    public void currentAddress(String currentAddress) {
-        elementsPage.currentAddress(currentAddress);
+    @Step("Заполняем поле 'Current Address' значением {currentAddress}")
+    public void fillCurrentAddress(String currentAddress) {
+        textBoxPage.fillCurrentAddress(currentAddress);
     }
 
-    @Step("Заполняем поле permanent address данными ({0})")
-    public void permanentAddress(String permanentAddress) {
-        elementsPage.permanentAddress(permanentAddress);
+    @Step("Заполняем поле 'Permanent Address' значением {permanentAddress}")
+    public void fillPermanentAddress(String permanentAddress) {
+        textBoxPage.fillPermanentAddress(permanentAddress);
     }
 
-    @Step("Кликаем по кнопке 'submit'")
-    public void clickBtn() {
-        elementsPage.clickSubmitBtn();
+    @Step("Кликаем кнопку Submit")
+    public void clickSubmit() {
+        textBoxPage.clickSubmit();
     }
 
-    @Step("Проверяем что поле full name содержит ({0}) поле email содержит({1})" +
-            " поле current address содержит ({2}) поле permanent содержит address({3})")
-    public void completedFormShouldHaveInfo(String fullName, String email, String currentAddress, String permanentAddress) {
-        elementsPage.completedFormShouldHaveInfo(fullName, email, currentAddress, permanentAddress);
+    @Step("Проверяем, что форма заполнена с информацией: {fullName}, {email}, {currentAddress}, {permanentAddress}")
+    public void verifyFormFilled(String fullName, String email, String currentAddress, String permanentAddress) {
+        textBoxPage.verifyFormFilled(fullName, email, currentAddress, permanentAddress);
     }
-
 }

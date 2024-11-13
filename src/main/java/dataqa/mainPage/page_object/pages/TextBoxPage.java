@@ -5,8 +5,9 @@ import utils.Selectors;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
-public class ElementsPage {
+public class TextBoxPage {
     //поля с сайта
     private final By FULL_NAME_INPUT = Selectors.byID("userName");
     private final By EMAIL_INPUT = Selectors.byID("userEmail");
@@ -14,6 +15,10 @@ public class ElementsPage {
     private final By PERMANENT_ADDRESS_INPUT = Selectors.byID("permanentAddress");
     private final By SUBMIT_BUTTON = Selectors.byID("submit");
     private final By COMPLETE_FORM = Selectors.byClass("border col-md-12 col-sm-12");
+
+    public void openTextBoxPage(){
+        open("/text-box");
+    }
 
     //методы взаимодействия с полями на сайте
     public void fillFullName(String fullName) {
@@ -24,25 +29,24 @@ public class ElementsPage {
         $(EMAIL_INPUT).setValue(email);
     }
 
-    public void currentAddress(String currentAddress) {
+    public void fillCurrentAddress(String currentAddress) {
         $(CURRENT_ADDRESS_INPUT).setValue(currentAddress);
     }
 
-    public void permanentAddress(String permanentAddress) {
+    public void fillPermanentAddress(String permanentAddress) {
         $(PERMANENT_ADDRESS_INPUT).setValue(permanentAddress);
     }
 
-    public void clickSubmitBtn() {
+    public void clickSubmit() {
         $(SUBMIT_BUTTON).click();
     }
 
-    public void completedFormShouldHaveInfo(String fullName,
-                                            String email,
-                                            String currentAddress,
-                                            String permanentAddress) {
-        $(COMPLETE_FORM).shouldHave(text(fullName),
+    public void verifyFormFilled(String fullName, String email, String currentAddress, String permanentAddress) {
+        $(COMPLETE_FORM).shouldHave(
+                text(fullName),
                 text(email),
                 text(currentAddress),
-                text(permanentAddress));
+                text(permanentAddress)
+        );
     }
 }
