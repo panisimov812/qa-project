@@ -1,6 +1,6 @@
-package api.jsonPlaceholderApiTests;
+package api;
 
-import api.jsonPlaceholderApiTests.steps.UserApiSteps;
+import api.steps.UserApiSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;

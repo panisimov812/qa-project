@@ -1,11 +1,13 @@
-package dataqa.mainPage.page_object.pages;
+package ui.pages;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 import utils.Selectors;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+
 
 public class TextBoxPage {
     //поля с сайта
@@ -22,31 +24,31 @@ public class TextBoxPage {
 
     //методы взаимодействия с полями на сайте
     public void fillFullName(String fullName) {
-        $(FULL_NAME_INPUT).setValue(fullName);
+        Selenide.$(FULL_NAME_INPUT).setValue(fullName);
     }
 
     public void fillEmail(String email) {
-        $(EMAIL_INPUT).setValue(email);
+        Selenide.$(EMAIL_INPUT).setValue(email);
     }
 
     public void fillCurrentAddress(String currentAddress) {
-        $(CURRENT_ADDRESS_INPUT).setValue(currentAddress);
+        Selenide.$(CURRENT_ADDRESS_INPUT).setValue(currentAddress);
     }
 
     public void fillPermanentAddress(String permanentAddress) {
-        $(PERMANENT_ADDRESS_INPUT).setValue(permanentAddress);
+        Selenide.$(PERMANENT_ADDRESS_INPUT).setValue(permanentAddress);
     }
 
     public void clickSubmit() {
-        $(SUBMIT_BUTTON).click();
+        Selenide.$(SUBMIT_BUTTON).click();
     }
 
     public void verifyFormFilled(String fullName, String email, String currentAddress, String permanentAddress) {
-        $(COMPLETE_FORM).shouldHave(
-                text(fullName),
-                text(email),
-                text(currentAddress),
-                text(permanentAddress)
+        Selenide.$(COMPLETE_FORM).shouldHave(
+                Condition.text(fullName),
+                Condition.text(email),
+                Condition.text(currentAddress),
+                Condition.text(permanentAddress)
         );
     }
 }

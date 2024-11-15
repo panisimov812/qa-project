@@ -1,6 +1,6 @@
-package ui.demoqaUiTests.steps;
+package ui.steps;
 
-import dataqa.mainPage.page_object.pages.TextBoxPage;
+import ui.pages.TextBoxPage;
 import io.qameta.allure.Step;
 
 public class TextBoxSteps {

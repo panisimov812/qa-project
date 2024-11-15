@@ -1,7 +1,6 @@
-package ui.demoqaUiTests.textBoxTests;
+package ui;
 
-import ui.demoqaUiTests.BaseTest;
-import ui.demoqaUiTests.steps.TextBoxSteps;
+import ui.steps.TextBoxSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;

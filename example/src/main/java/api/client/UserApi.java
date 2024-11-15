@@ -1,5 +1,6 @@
-package dataqa.api.page_object;
+package api.client;
 
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -15,7 +16,7 @@ public class UserApi {
      * @return Ответ от API, содержащий данные о пользователе.
      */
     public Response getUser(int userId) {
-        return given()
+        return RestAssured.given()
                 .pathParam("id", userId)
                 .when()
                 .get(USERS_ENDPOINT + "/{id}");
@@ -28,7 +29,7 @@ public class UserApi {
      * @return Ответ от API, содержащий информацию о созданном пользователе.
      */
     public Response createUser(String requestBody) {
-        return given()
+        return RestAssured.given()
                 .header("Content-Type", "application/json")
                 .body(requestBody)
                 .when()

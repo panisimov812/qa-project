@@ -1,8 +1,9 @@
-package api.jsonPlaceholderApiTests.steps;
+package api.steps;
 
-import dataqa.api.page_object.UserApi;
+import api.client.UserApi;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 
 import static org.hamcrest.Matchers.equalTo;
 
@@ -19,7 +20,7 @@ public class UserApiSteps {
     @Step("Проверяем данные пользователя с ID {userId}")
     public void getUserAndCheckUsername(int userId, String expectedUsername) {
         Response response = userApi.getUser(userId);
-        response.then().statusCode(200).body("username", equalTo(expectedUsername));
+        response.then().statusCode(200).body("username", Matchers.equalTo(expectedUsername));
     }
 
     /**
@@ -30,6 +31,6 @@ public class UserApiSteps {
     @Step("Создаем пользователя и проверяем ответ")
     public void createUserAndCheckResponse(String requestBody) {
         Response response = userApi.createUser(requestBody);
-        response.then().statusCode(201).body("title", equalTo("foo"));
+        response.then().statusCode(201).body("title", Matchers.equalTo("foo"));
     }
 }

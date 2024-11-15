@@ -1,4 +1,4 @@
-package api.jsonPlaceholderApiTests;
+package api;
 
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
