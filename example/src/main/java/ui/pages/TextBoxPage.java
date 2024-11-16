@@ -1,6 +1,6 @@
 package ui.pages;
 
-import com.steps.NavigationSteps;
+import org.steps.NavigationSteps;
 import org.openqa.selenium.By;
 import utils.Selectors;
 
