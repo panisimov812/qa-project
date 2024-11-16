@@ -14,7 +14,7 @@ public class TextBoxTests extends BaseTest {
     @Owner("Имя тестировщика")
     @DisplayName("Проверка заполнения полей на странице /text-box")
     @Description("Заполняем все поля, нажимаем submit, проверяем вывод заполненной информации")
-    void fillAllForms() {
+    void checkCompletedForm() {
         String fullName = "Name LastName";
         String email = "email@email.com";
         String currentAddress = "Current Address Example";
