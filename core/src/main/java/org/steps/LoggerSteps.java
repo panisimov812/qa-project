@@ -8,11 +8,16 @@ import org.slf4j.LoggerFactory;
  * Класс содержит обработку шагов для логирования
  */
 public class LoggerSteps {
-    private static final Logger logger = LoggerFactory.getLogger(FormSteps.class);
 
     public String formatFormLogMessage(String nameOfField, String valueForField) {
         return nameOfField != null
                 ? String.format("Вводим значение: %s в поле %s ", valueForField, nameOfField)
                 : String.format("Вводим значение: %s", valueForField);
+    }
+
+    public String formatButtonLogMessage(String nameOfButton) {
+        return nameOfButton != null
+                ? String.format("Кликаем на кнопку: %s ", nameOfButton)
+                : "Кликаем на кнопку";
     }
 }

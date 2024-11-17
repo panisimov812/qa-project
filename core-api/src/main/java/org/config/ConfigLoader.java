@@ -6,9 +6,9 @@ import java.util.Properties;
 public class ConfigLoader {
     private static final Properties properties = new Properties();
 
-    /**
-     * 	static { ... }: Статический блок выполняется один раз при загрузке класса в память.
-     * 	Здесь используется для инициализации конфигурации.
+    /*
+      	static { ... }: Статический блок выполняется один раз при загрузке класса в память.
+      	Здесь используется для инициализации конфигурации.
      */
     static {
         try (var input = ConfigLoader.class.getClassLoader().getResourceAsStream("application.properties")) {

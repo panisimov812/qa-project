@@ -2,6 +2,7 @@ package ui.pages;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.steps.ButtonSteps;
 import org.steps.FormSteps;
 import org.steps.NavigationSteps;
 import org.openqa.selenium.By;
@@ -13,6 +14,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class TextBoxPage {
     NavigationSteps navigationSteps = new NavigationSteps();
     FormSteps formSteps = new FormSteps();
+    ButtonSteps buttonSteps = new ButtonSteps();
     private static final Logger logger = LoggerFactory.getLogger(TextBoxPage.class);
 
 
@@ -34,6 +36,7 @@ public class TextBoxPage {
     String TITLE_FOR_EMAIL_FIELD = "для ввода email";
     String TITLE_FOR_CURRENT_ADDRESS_FIELD = "Current Address";
     String TITLE_FOR_PERMANENT_ADDRESS_FIELD = "Permanent Address";
+    String TITLE_FOR_SUBMIT_BUTTON = "Submit";
 
     public void openTextBoxPage() {
         navigationSteps.openPage("/text-box");
@@ -71,8 +74,9 @@ public class TextBoxPage {
     }
 
     public void clickSubmit() {
-        logger.info("Кнопка Submit нажата");
-        $(SUBMIT_BUTTON).click();
+        buttonSteps.clickToButton(
+                SUBMIT_BUTTON,
+                TITLE_FOR_SUBMIT_BUTTON);
     }
 
     public void verifyFormFilled(String fullName, String email, String currentAddress, String permanentAddress) {
