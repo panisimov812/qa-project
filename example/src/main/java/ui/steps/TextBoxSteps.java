@@ -13,8 +13,8 @@ public class TextBoxSteps {
     }
 
     @Step("Заполняем поле 'Full Name' значением {fullName}")
-    public void fillFullName(String fullName) {
-        textBoxPage.fillFullName(fullName);
+    public void fillFullName(String fullNameValues) {
+        textBoxPage.fillFullName(fullNameValues);
     }
 
     @Step("Заполняем поле 'Email' значением {email}")

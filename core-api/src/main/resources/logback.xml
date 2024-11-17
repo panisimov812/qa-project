@@ -1,0 +1,16 @@
+<configuration>
+
+    <!-- Определение аппендера для консоли -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Шаблон вывода логов: дата, поток, уровень, имя логера и сообщение -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Настройка уровня логирования для всех логеров ( root level="debug")-->
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+</configuration>
