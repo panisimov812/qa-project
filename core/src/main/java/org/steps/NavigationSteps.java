@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * 	•	FormSteps — шаги для работы с формами
  * 	•	ElementInteractionSteps — шаги для взаимодействия с элементами UI
  */
-public class NavigationSteps {
+public class NavigationSteps extends LoggerSteps {
     private static final Logger logger = LoggerFactory.getLogger(NavigationSteps.class);
 
     /**
@@ -19,7 +19,13 @@ public class NavigationSteps {
      */
     @Step("Открываем страницу {0}")
     public void openPage(String url){
-        logger.info("Открыта страница /text-box");
-        Selenide.open(url); //Selenide открывате страницу URL
+        try {
+            logger.info("Открыта страница {}", url);
+            Selenide.open(url);
+        } catch (Exception e) {
+            logger.error("Не удалось открыть страницу {}", url, e);
+            throw e;
+        }
+        //todo добавить лог
     }
 }

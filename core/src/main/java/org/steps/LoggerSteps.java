@@ -1,7 +1,5 @@
 package org.steps;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.qameta.allure.Step;
 
 /**
  * @author Anisimov Petr
@@ -9,6 +7,7 @@ import org.slf4j.LoggerFactory;
  */
 public class LoggerSteps {
 
+    @Step("Форматируем лог сообщение для поля {0} с значением {1}")
     public String formatFormLogMessage(String nameOfField, String valueForField) {
         return nameOfField != null
                 ? String.format("Вводим значение: %s в поле %s ", valueForField, nameOfField)
