@@ -26,6 +26,5 @@ public class NavigationSteps extends LoggerSteps {
             logger.error("Не удалось открыть страницу {}", url, e);
             throw e;
         }
-        //todo добавить лог
     }
 }
