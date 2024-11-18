@@ -1,81 +1,16 @@
-plugins {
-    id 'java'
-    id 'io.qameta.allure' version '2.11.2'  // Плагин для интеграции с Allure
-}
+subprojects {
+    apply plugin: 'java'
 
-repositories {
-    mavenCentral()  // Центральный Maven репозиторий
-    maven { url "https://maven.aliyun.com/repository/public" }  // Альтернативный репозиторий
-    maven { url "https://jitpack.io" }  // Репозиторий JitPack
-}
-
-// Определяем версии Allure и AspectJ
-def allureVersion = "2.26.0"  // Актуальная версия Allure
-def aspectJVersion = '1.9.22.1'  // Версия AspectJ
-
-configurations {
-    agent {
-        canBeResolved = true
-        canBeConsumed = false  // Конфигурация для агента AspectJ
+    repositories {
+        mavenCentral()
     }
-}
 
-dependencies {
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.0'
+        testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.0'
+    }
 
-    // Rest Assured для тестирования API
-    implementation 'io.rest-assured:rest-assured:5.5.0'
-
-    // Платформа JUnit 5 для управления версиями
-    testImplementation platform("org.junit:junit-bom:5.10.2")
-
-    // Движок JUnit 5
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
-
-    // Serenity Core для BDD-тестов
-    implementation 'net.serenity-bdd:serenity-core:4.2.0'
-
-    // API JUnit 5
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.0'
-
-    // SLF4J для логирования
-    implementation 'org.slf4j:slf4j-api:2.0.16'
-
-    // AssertJ для удобных утверждений в тестах
-    testImplementation 'org.assertj:assertj-core:3.26.3'
-
-    // Selenide для работы с веб-элементами
-    implementation 'com.codeborne:selenide:7.4.3'
-
-    // Selenium Java для веб-тестирования
-    testImplementation 'org.seleniumhq.selenium:selenium-java:4.13.0'
-
-    // JUnit 5 движок
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.0'
-
-    // Logback для логирования
-    implementation 'ch.qos.logback:logback-classic:1.4.12'
-
-    // Allure BOM для контроля версий зависимостей Allure
-    testImplementation platform("io.qameta.allure:allure-bom:$allureVersion")
-
-    // Интеграция Allure с JUnit 5
-    testImplementation "io.qameta.allure:allure-junit5"
-
-    // Встраивает логику отчетности Allure в тесты, которые используют библиотеку
-    // RestAssured для тестирования API.
-    testImplementation("io.qameta.allure:allure-rest-assured")
-
-    // Weaver AspectJ для работы с аспектами
-    add('agent', "org.aspectj:aspectjweaver:$aspectJVersion")
-}
-
-test {
-    ignoreFailures = true
-    useJUnitPlatform()
-    jvmArgs = ["-javaagent:${configurations.agent.singleFile}"]
-}
-
-// Настройки плагина Allure
-allure {
-    version = "$allureVersion"
+    tasks.withType(Test) {
+        useJUnitPlatform()
+    }
 }
