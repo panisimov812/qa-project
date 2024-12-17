@@ -15,9 +15,13 @@ public class TextBoxPage {
     NavigationSteps navigationSteps = new NavigationSteps();
     FormSteps formSteps = new FormSteps();
     ButtonSteps buttonSteps = new ButtonSteps();
+
     private static final Logger logger = LoggerFactory.getLogger(TextBoxPage.class);
-
-
+    /**
+     * Составной URL страницы
+     */
+    private static final String BASE_URL_KEY = "base.url";
+    private static final String TEXT_BOX_PAGE_PATH_KEY = "textBox.page";
     /**
      * список констант с присвоенными к ним локаторами
      * для дальнейшего их использования в методах
@@ -38,8 +42,12 @@ public class TextBoxPage {
     String TITLE_FOR_PERMANENT_ADDRESS_FIELD = "Permanent Address";
     String TITLE_FOR_SUBMIT_BUTTON = "Submit";
 
+    /**
+     * Устанавливаем Google URL из application.properties
+     */
     public void openTextBoxPage() {
-        navigationSteps.openPage("/text-box");
+        logger.info("Открытие страницы /text-box");
+        navigationSteps.openPage(BASE_URL_KEY, TEXT_BOX_PAGE_PATH_KEY);
     }
 
     public void fillFullName(String fullNameValues) {

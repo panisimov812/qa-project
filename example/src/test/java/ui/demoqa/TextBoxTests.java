@@ -1,5 +1,6 @@
-package ui;
+package ui.demoqa;
 
+import ui.BaseTest;
 import ui.steps.TextBoxSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -25,7 +26,7 @@ public class TextBoxTests extends BaseTest {
         textBoxSteps.fillEmail(email);
         textBoxSteps.fillCurrentAddress(currentAddress);
         textBoxSteps.fillPermanentAddress(permanentAddress);
-        textBoxSteps.clickSubmit();
+        textBoxSteps.clickSubmitBtn();
         textBoxSteps.verifyFormFilled(fullName, email, currentAddress, permanentAddress);
     }
 }
