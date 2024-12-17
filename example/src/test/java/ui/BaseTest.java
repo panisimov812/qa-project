@@ -14,14 +14,18 @@ public class BaseTest {
 
     @BeforeAll
     static void setUp() {
-        Configuration.baseUrl = ConfigLoader.get("base.url");
-        Configuration.browser = ConfigLoader.get("chrome.browser", "chrome"); // Значение по умолчанию "chrome"
+        /**
+         * Устанавливаем базовый URL по умолчанию который находится в файле
+         * application.properties
+         */
+        Configuration.browser = ConfigLoader.getOrDefault(
+                "chrome.browser",
+                "chrome"); // Значение по умолчанию "chrome"
         Configuration.browserSize = ConfigLoader.get("browser.size");
 
         logger.info("Base URL: {}", Configuration.baseUrl);
         logger.info("Browser: {}", Configuration.browser);
         logger.info("Browser Size: {}", Configuration.browserSize);
-
     }
 
     @AfterAll

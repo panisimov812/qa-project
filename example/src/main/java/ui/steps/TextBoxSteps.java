@@ -33,7 +33,7 @@ public class TextBoxSteps {
     }
 
     @Step("Кликаем кнопку Submit")
-    public void clickSubmit() {
+    public void clickSubmitBtn() {
         textBoxPage.clickSubmit();
     }
 
