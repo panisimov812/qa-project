@@ -1,16 +1,33 @@
-package org.steps;
+package utils;
 
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import org.config.ConfigLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.steps.LoggerSteps;
 
 /**
  * NavigationSteps — шаги для навигации по страницам
  */
-public class NavigationSteps extends LoggerSteps {
-    private static final Logger logger = LoggerFactory.getLogger(NavigationSteps.class);
+public class Navigation extends LoggerSteps {
+    private static final Logger logger = LoggerFactory.getLogger(Navigation.class);
+
+    /**
+     * Открытие страницы по полному URL из конфигурации.
+     *
+     * @param urlKey Ключ для получения полного URL из конфигурации.
+     */
+    @Step("Открываем страницу по ключу {urlKey}")
+    public void openPage(String urlKey) {
+        try {
+            logger.info("Успешно открыта страница {}", ConfigLoader.get(urlKey));
+            Selenide.open(ConfigLoader.get(urlKey));
+        } catch (Exception e) {
+            logger.error("Не удалось открыть страницу {}", urlKey, e);
+            throw e;
+        }
+    }
 
     /**
      * Открытие страницы по базовому URL и относительному пути.
@@ -21,23 +38,6 @@ public class NavigationSteps extends LoggerSteps {
     @Step("Открываем страницу {urlKey} с относительным путем {pageUrl}")
     public void openPage(String urlKey, String pageUrl) {
         String fullUrl = buildFullUrl(urlKey, pageUrl);
-        try {
-            logger.info("Успешно открыта страница {}", fullUrl);
-            Selenide.open(fullUrl);
-        } catch (Exception e) {
-            logger.error("Не удалось открыть страницу {}", fullUrl, e);
-            throw e;
-        }
-    }
-
-    /**
-     * Открытие страницы по полному URL из конфигурации.
-     *
-     * @param urlKey Ключ для получения полного URL из конфигурации.
-     */
-    @Step("Открываем страницу по ключу {urlKey}")
-    public void openPage(String urlKey) {
-        String fullUrl = ConfigLoader.get(urlKey);
         try {
             logger.info("Успешно открыта страница {}", fullUrl);
             Selenide.open(fullUrl);

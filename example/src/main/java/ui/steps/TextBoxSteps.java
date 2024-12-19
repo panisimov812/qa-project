@@ -1,15 +1,15 @@
 package ui.steps;
 
+import core.frontend.PageFactory;
 import ui.pages.TextBoxPage;
 import io.qameta.allure.Step;
 
 public class TextBoxSteps {
-
-    private final TextBoxPage textBoxPage = new TextBoxPage();
+    TextBoxPage textBoxPage = PageFactory.createTextBoxPage();
 
     @Step("Открываем страницу /textbox")
     public void openTextBoxPage() {
-        textBoxPage.openTextBoxPage();
+        textBoxPage.open();
     }
 
     @Step("Заполняем поле 'Full Name' значением {fullName}")

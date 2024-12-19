@@ -1,27 +1,28 @@
 package ui.pages;
 
+import frontend.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.steps.ButtonSteps;
 import org.steps.FormSteps;
-import org.steps.NavigationSteps;
 import org.openqa.selenium.By;
 import utils.Selectors;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
-public class TextBoxPage {
-    NavigationSteps navigationSteps = new NavigationSteps();
+
+public class TextBoxPage extends Page {
     FormSteps formSteps = new FormSteps();
     ButtonSteps buttonSteps = new ButtonSteps();
 
-    private static final Logger logger = LoggerFactory.getLogger(TextBoxPage.class);
     /**
-     * Составной URL страницы
+     * Берем URL из application.properties
      */
-    private static final String BASE_URL_KEY = "base.url";
-    private static final String TEXT_BOX_PAGE_PATH_KEY = "textBox.page";
+    public TextBoxPage() {
+        super("text.box.url");
+    }
+
     /**
      * список констант с присвоенными к ним локаторами
      * для дальнейшего их использования в методах
@@ -32,6 +33,7 @@ public class TextBoxPage {
     private final By PERMANENT_ADDRESS_INPUT = Selectors.byID("permanentAddress");
     private final By SUBMIT_BUTTON = Selectors.byID("submit");
     private final By COMPLETE_FORM = Selectors.byClass("border col-md-12 col-sm-12");
+    private static final Logger logger = LoggerFactory.getLogger(TextBoxPage.class);
 
     /**
      * список названий полей для удобства чтения логов
@@ -42,13 +44,6 @@ public class TextBoxPage {
     String TITLE_FOR_PERMANENT_ADDRESS_FIELD = "Permanent Address";
     String TITLE_FOR_SUBMIT_BUTTON = "Submit";
 
-    /**
-     * Устанавливаем Google URL из application.properties
-     */
-    public void openTextBoxPage() {
-        logger.info("Открытие страницы /text-box");
-        navigationSteps.openPage(BASE_URL_KEY, TEXT_BOX_PAGE_PATH_KEY);
-    }
 
     public void fillFullName(String fullNameValues) {
         formSteps.fillFormByLocator(
