@@ -18,5 +18,4 @@ public class FormSteps extends LoggerSteps {
         logger.info(formatFormLogMessage(nameOfField, valueForField));
         $(qaLocator).setValue(valueForField);
     }
-
 }
