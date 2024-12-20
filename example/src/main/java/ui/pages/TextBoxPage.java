@@ -3,8 +3,8 @@ package ui.pages;
 import frontend.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.steps.ButtonSteps;
-import org.steps.FormSteps;
+import org.commonSteps.frontendSteps.ButtonSteps;
+import org.commonSteps.frontendSteps.FormSteps;
 import org.openqa.selenium.By;
 import utils.Selectors;
 

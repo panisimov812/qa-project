@@ -1,5 +1,6 @@
-package org.steps;
+package org.commonSteps.frontendSteps;
 
+import org.commonSteps.LoggerSteps;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
