@@ -1,4 +1,4 @@
-package org.steps;
+package org.commonSteps;
 import io.qameta.allure.Step;
 
 /**

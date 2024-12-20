@@ -2,10 +2,11 @@ package utils;
 
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
+import org.commonSteps.LoggerSteps;
 import org.config.ConfigLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.steps.LoggerSteps;
+
 
 /**
  * NavigationSteps — шаги для навигации по страницам
